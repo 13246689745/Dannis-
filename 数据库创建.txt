@@ -1,0 +1,41 @@
+﻿用户信息登记表(users_info)
+create table users_info(
+id int primary key not null auto_increment,
+name varchar(20) not null,
+password varchar(40) not null,
+ip varchar(15),
+port varchar(6),
+isOnline enum("在线","离开","忙碌","请勿打扰","隐身","离线") not null default "离线",
+headimg varchar(12) default '1.png',
+unique(name))charset=utf8;
+
+
+用户个人信息模板(user_info_template)
+create table user_info_template(
+id int primary key not null auto_increment,
+name varchar(20) not null,
+isOnline enum("在线","离开","忙碌","请勿打扰","隐身","离线") not null default "离线",
+isDelete enum("Y","N") default "N",
+headimg varchar(12) default "1.png",
+friend_group varchar(1000) default "我的好友",
+group_name text,
+unique(name))charset=utf8;
+
+
+群信息登记表(groups_info)
+create table groups_info(
+id int primary key not null auto_increment,
+g_name varchar(20) not null,
+isDelete enum("Y","N") default "N",
+owner varchar(20) not null,
+unique(g_name))charset=utf8;
+
+
+群成员信息登记模板表(group_info_template)
+create table group_info_template(
+id int primary key not null auto_increment,
+name varchar(20) not null,
+isOnline enum("在线","离开","忙碌","请勿打扰","隐身","离线") not null default "离线",
+isDelete enum("Y","N") default "N",
+headimg varchar(12) default '1.png',
+unique(name))charset=utf8;
